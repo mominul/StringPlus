@@ -1,4 +1,5 @@
-struct StringPlus {
+/// Internal Helper structure
+internal struct StringPlus {
   internal var _str: String
   internal var _ary: [Character] = []
 
@@ -41,14 +42,24 @@ struct StringPlus {
   func at(_ index: Int) -> Character {
     return _ary[index]
   }
+}
 
-  mutating func append(_ str: String) {
-    _str.append(str)
-    validate()
+public extension String {
+  subscript(at: Int) -> Character {
+    get {
+      let str = StringPlus(string: self)
+      return str[at]
+    }
+
+    set {
+      var str = StringPlus(string: self)
+      str[at] = newValue
+      self = str.string
+    }
   }
 
-  mutating func append(_ c: Character) {
-    _str.append(c)
-    validate()
+  func at(_ index: Int) -> Character {
+    let str = StringPlus(string: self)
+    return str[index]
   }
 }

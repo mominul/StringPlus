@@ -5,13 +5,13 @@ class StringPlusTests: XCTestCase {
     func testAt() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let str = StringPlus(string: "Hello")
+        let str = "Hello"
         XCTAssertEqual(str[0], "H")
         XCTAssertEqual(str.at(4), "o")
         // Replace a Character
-        var wrong = StringPlus(string: "Heelo")
+        var wrong = "Heelo"
         wrong[2] = "l"
-        XCTAssertEqual(wrong.string, "Hello")
+        XCTAssertEqual(wrong, "Hello")
     }
 
     func testString() {
