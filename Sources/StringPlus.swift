@@ -14,7 +14,7 @@ struct StringPlus {
       return
     }
 
-    if !_ary.isEmpty {
+    if _ary.isEmpty {
       _ary.removeAll()
     }
 
@@ -28,10 +28,27 @@ struct StringPlus {
   }
 
   subscript(at: Int) -> Character {
-    return _ary[at]
+    get {
+      return _ary[at]
+    }
+
+    set {
+      _ary[at] = newValue
+      _str = String(_ary)
+    }
   }
 
   func at(_ index: Int) -> Character {
     return _ary[index]
+  }
+
+  mutating func append(_ str: String) {
+    _str.append(str)
+    validate()
+  }
+
+  mutating func append(_ c: Character) {
+    _str.append(c)
+    validate()
   }
 }

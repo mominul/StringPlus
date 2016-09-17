@@ -8,6 +8,10 @@ class StringPlusTests: XCTestCase {
         let str = StringPlus(string: "Hello")
         XCTAssertEqual(str[0], "H")
         XCTAssertEqual(str.at(4), "o")
+        // Replace a Character
+        var wrong = StringPlus(string: "Heelo")
+        wrong[2] = "l"
+        XCTAssertEqual(wrong.string, "Hello")
     }
 
     func testString() {
