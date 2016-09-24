@@ -57,6 +57,10 @@ internal struct StringPlus {
 }
 
 public extension String {
+  public var length: Int {
+    return self.characters.count
+  }
+
   public subscript(at: Int) -> Character {
     get {
       let str = StringPlus(string: self)

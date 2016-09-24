@@ -26,12 +26,17 @@ class StringPlusTests: XCTestCase {
       XCTAssertEqual(country.left(count: 6), "Bangla")
     }
 
+    func testLength() {
+      XCTAssertEqual("Cricket".length, 7)
+    }
+
 
     static var allTests : [(String, (StringPlusTests) -> () throws -> Void)] {
         return [
             ("testAt", testAt),
             ("testString", testString),
             ("testSubstring", testSubstring),
+            ("testLength", testLength),
         ]
     }
 }
