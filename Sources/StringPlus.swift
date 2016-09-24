@@ -42,6 +42,16 @@ internal struct StringPlus {
   func at(_ index: Int) -> Character {
     return _ary[index]
   }
+
+  func substring(start from: Int, end to: Int) -> String {
+    var array: [Character] = []
+    precondition(to > from)
+    for index in from...to {
+      array.append(_ary[index])
+    }
+
+    return String(array)
+  }
 }
 
 public extension String {
@@ -61,5 +71,10 @@ public extension String {
   func at(_ index: Int) -> Character {
     let str = StringPlus(string: self)
     return str[index]
+  }
+
+  func substring(start from: Int, end to: Int) -> String {
+    let s = StringPlus(string: self)
+    return s.substring(start: from, end: to)
   }
 }

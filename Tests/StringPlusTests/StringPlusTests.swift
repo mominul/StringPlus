@@ -19,11 +19,18 @@ class StringPlusTests: XCTestCase {
       XCTAssertEqual(str.string, String("World"))
     }
 
+    func testSubstring() {
+      let country = "Bangladesh"
+      let lang = country.substring(start: 0, end: 5)
+      XCTAssertEqual(lang, "Bangla")
+    }
+
 
     static var allTests : [(String, (StringPlusTests) -> () throws -> Void)] {
         return [
             ("testAt", testAt),
             ("testString", testString),
+            ("testSubstring", testSubstring),
         ]
     }
 }
