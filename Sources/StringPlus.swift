@@ -45,7 +45,9 @@ internal struct StringPlus {
 
   func substring(start from: Int, end to: Int) -> String {
     var array: [Character] = []
+
     precondition(to > from)
+
     for index in from...to {
       array.append(_ary[index])
     }
@@ -55,7 +57,7 @@ internal struct StringPlus {
 }
 
 public extension String {
-  subscript(at: Int) -> Character {
+  public subscript(at: Int) -> Character {
     get {
       let str = StringPlus(string: self)
       return str[at]
@@ -68,13 +70,21 @@ public extension String {
     }
   }
 
-  func at(_ index: Int) -> Character {
+  public func at(_ index: Int) -> Character {
     let str = StringPlus(string: self)
     return str[index]
   }
 
-  func substring(start from: Int, end to: Int) -> String {
+  /// Mark: Creating Sub-Strings
+
+  public func substring(start from: Int, end to: Int) -> String {
     let s = StringPlus(string: self)
     return s.substring(start: from, end: to)
+  }
+
+  public func left(count: Int) -> String {
+    precondition(!(count > self.characters.count))
+    let s = StringPlus(string: self)
+    return s.substring(start: 0, end: count - 1)
   }
 }

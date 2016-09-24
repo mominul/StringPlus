@@ -21,8 +21,9 @@ class StringPlusTests: XCTestCase {
 
     func testSubstring() {
       let country = "Bangladesh"
-      let lang = country.substring(start: 0, end: 5)
-      XCTAssertEqual(lang, "Bangla")
+
+      XCTAssertEqual(country.substring(start: 0, end: 5), "Bangla")
+      XCTAssertEqual(country.left(count: 6), "Bangla")
     }
 
 
