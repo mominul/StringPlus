@@ -24,11 +24,11 @@ internal struct StringPlus {
     }
   }
 
-  var string: String {
+  internal var string: String {
     return _str
   }
 
-  subscript(at: Int) -> Character {
+  internal subscript(at: Int) -> Character {
     get {
       return _ary[at]
     }
@@ -39,11 +39,11 @@ internal struct StringPlus {
     }
   }
 
-  func at(_ index: Int) -> Character {
+  internal func at(_ index: Int) -> Character {
     return _ary[index]
   }
 
-  func substring(start from: Int, end to: Int) -> String {
+  internal func substring(start from: Int, end to: Int) -> String {
     var array: [Character] = []
 
     precondition(to > from)
@@ -54,12 +54,25 @@ internal struct StringPlus {
 
     return String(array)
   }
+
+  internal func substring(start: Int, length: Int) -> String {
+    var array = Array(_ary.dropFirst(start))
+    var stringArray: [Character] = []
+
+    for index in 0...(length - 1) {
+      stringArray.append(array[index])
+    }
+
+    return String(stringArray)
+  }
 }
 
 public extension String {
   public var length: Int {
     return self.characters.count
   }
+
+  /// Mark: Characters at a random place
 
   public subscript(at: Int) -> Character {
     get {
@@ -84,6 +97,11 @@ public extension String {
   public func substring(start from: Int, end to: Int) -> String {
     let s = StringPlus(string: self)
     return s.substring(start: from, end: to)
+  }
+
+  public func substring(start: Int, length: Int) -> String {
+    let s = StringPlus(string: self)
+    return s.substring(start: start, length: length)
   }
 
   public func left(count: Int) -> String {

@@ -20,10 +20,9 @@ class StringPlusTests: XCTestCase {
     }
 
     func testSubstring() {
-      let country = "Bangladesh"
-
-      XCTAssertEqual(country.substring(start: 0, end: 5), "Bangla")
-      XCTAssertEqual(country.left(count: 6), "Bangla")
+      XCTAssertEqual("Bangladesh".substring(start: 0, end: 5), "Bangla")
+      XCTAssertEqual("Bangladesh".substring(start: 3, length: 4), "glad")
+      XCTAssertEqual("Bangladesh".left(count: 6), "Bangla")
     }
 
     func testLength() {
