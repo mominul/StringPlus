@@ -33,6 +33,10 @@ class StringPlusTests: XCTestCase {
       XCTAssertFalse("é".has(suffix: "fé"))
     }
 
+    func testSimplified() {
+      XCTAssertEqual("  lots\t of\nwhitespace\r\n ".simplified(), "lotsofwhitespace")
+    }
+
 
     static var allTests : [(String, (StringPlusTests) -> () throws -> Void)] {
         return [
@@ -40,6 +44,7 @@ class StringPlusTests: XCTestCase {
             ("testSubstring", testSubstring),
             ("testLength", testLength),
             ("testHas", testHas),
+            ("testSimplified", testSimplified),
         ]
     }
 }

@@ -69,4 +69,14 @@ public extension String {
     }
     return false
   }
+
+  public func simplified() -> String {
+    let trimmingChars: [Character] = [" ", "\n", "\t", "\r", "\r\n"]
+
+    let chars = characters.filter { element in
+      !trimmingChars.contains { return $0 == element }
+    }
+
+    return String(chars)
+  }
 }
