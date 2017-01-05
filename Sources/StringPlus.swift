@@ -1,3 +1,14 @@
+/*
+  StringPlus
+
+  Copyright (C) 2016-present StringPlus Authors
+
+  Authors:
+    Muhammad Mominul Huque
+  References:
+    http://stackoverflow.com/a/26775912
+*/
+
 /// Internal Helper structure
 internal struct StringPlus {
   internal var _str: String
@@ -76,20 +87,18 @@ public extension String {
 
   public subscript(at: Int) -> Character {
     get {
-      let str = StringPlus(string: self)
-      return str[at]
+      return self[self.index(startIndex, offsetBy: at)]
     }
 
     set {
-      var str = StringPlus(string: self)
-      str[at] = newValue
-      self = str.string
+      let idx = index(startIndex, offsetBy: at)
+      remove(at: idx)
+      insert(newValue, at: idx)
     }
   }
 
   public func at(_ index: Int) -> Character {
-    let str = StringPlus(string: self)
-    return str[index]
+    return self[index]
   }
 
   /// Mark: Creating Sub-Strings

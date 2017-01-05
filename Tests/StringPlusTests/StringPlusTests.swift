@@ -3,8 +3,6 @@ import XCTest
 
 class StringPlusTests: XCTestCase {
     func testAt() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
         let str = "Hello"
         XCTAssertEqual(str[0], "H")
         XCTAssertEqual(str.at(4), "o")
