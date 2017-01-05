@@ -71,7 +71,7 @@ public extension String {
   }
 
   public func simplified() -> String {
-    let trimmingChars: [Character] = [" ", "\n", "\t", "\r", "\r\n"]
+    let trimmingChars: [Character] = [" ", "\n", "\t", "\r", "\r\n", "\u{2028}", "\u{2029}"]
 
     let chars = characters.filter { element in
       !trimmingChars.contains { return $0 == element }
