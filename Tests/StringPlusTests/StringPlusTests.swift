@@ -23,12 +23,23 @@ class StringPlusTests: XCTestCase {
       XCTAssertEqual("Cricket".length, 7)
     }
 
+    func testHas() {
+      XCTAssertTrue("Café du Monde".has(prefix: "Café"))
+      XCTAssertFalse("Ca".has(prefix: "ca"))
+      XCTAssertFalse("Ca".has(prefix: "Café"))
+
+      XCTAssertTrue("Let's meet at the café".has(suffix: "fé"))
+      XCTAssertFalse("fe".has(suffix: "fé"))
+      XCTAssertFalse("é".has(suffix: "fé"))
+    }
+
 
     static var allTests : [(String, (StringPlusTests) -> () throws -> Void)] {
         return [
             ("testAt", testAt),
             ("testSubstring", testSubstring),
             ("testLength", testLength),
+            ("testHas", testHas),
         ]
     }
 }

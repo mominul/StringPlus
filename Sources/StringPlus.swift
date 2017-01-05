@@ -55,4 +55,18 @@ public extension String {
     precondition(!(count > self.characters.count))
     return String(characters.suffix(count))
   }
+
+  public func has(suffix: String) -> Bool {
+    if !(suffix.length > self.length) {
+      return right(count: suffix.length) == suffix ? true : false
+    }
+    return false
+  }
+
+  public func has(prefix: String) -> Bool {
+    if !(prefix.length > self.length) {
+      return left(count: prefix.length) == prefix ? true : false
+    }
+    return false
+  }
 }
