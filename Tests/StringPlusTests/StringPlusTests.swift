@@ -21,6 +21,7 @@ class StringPlusTests: XCTestCase {
       XCTAssertEqual("Bangladesh".substring(start: 0, end: 5), "Bangla")
       XCTAssertEqual("Bangladesh".substring(start: 3, length: 4), "glad")
       XCTAssertEqual("Bangladesh".left(count: 6), "Bangla")
+      XCTAssertEqual("Swift".right(count: 2), "ft")
     }
 
     func testLength() {

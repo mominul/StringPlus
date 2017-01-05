@@ -115,7 +115,11 @@ public extension String {
 
   public func left(count: Int) -> String {
     precondition(!(count > self.characters.count))
-    let s = StringPlus(string: self)
-    return s.substring(start: 0, end: count - 1)
+    return String(characters.prefix(count))
+  }
+
+  public func right(count: Int) -> String {
+    precondition(!(count > self.characters.count))
+    return String(characters.suffix(count))
   }
 }
