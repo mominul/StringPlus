@@ -14,6 +14,14 @@ public extension String {
     return self.characters.count
   }
 
+  /// Mark: URL and Path Related
+
+  public var isUrl: Bool {
+    return has(prefix: "http:") || has(prefix: "https:") || has(prefix: "ftp:") ||
+            has(prefix: "irc:") || has(prefix: "file:") || has(prefix: "mailto:") ||
+            has(prefix: "data:")
+  }
+
   /// Mark: Characters at a random place
 
   public subscript(at: Int) -> Character {

@@ -38,6 +38,11 @@ class StringPlusTests: XCTestCase {
       XCTAssertEqual("/ubuntu-14.04/".trimmingCharacters(in: ["/", "-", "."]), "ubuntu1404")
     }
 
+    func testUrlAndPath() {
+      XCTAssertTrue("https://swift.org".isUrl)
+      XCTAssertFalse("/home/".isUrl)
+    }
+
 
     static var allTests : [(String, (StringPlusTests) -> () throws -> Void)] {
         return [
@@ -46,6 +51,7 @@ class StringPlusTests: XCTestCase {
             ("testLength", testLength),
             ("testHas", testHas),
             ("testTrimming", testTrimming),
+            ("testUrlAndPath", testUrlAndPath),
         ]
     }
 }
