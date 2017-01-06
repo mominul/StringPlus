@@ -33,8 +33,9 @@ class StringPlusTests: XCTestCase {
       XCTAssertFalse("é".has(suffix: "fé"))
     }
 
-    func testSimplified() {
+    func testTrimming() {
       XCTAssertEqual("  lots\t of\nwhitespace\r\n ".simplified(), "lotsofwhitespace")
+      XCTAssertEqual("/ubuntu-14.04/".trimmingCharacters(in: ["/", "-", "."]), "ubuntu1404")
     }
 
 
@@ -44,7 +45,7 @@ class StringPlusTests: XCTestCase {
             ("testSubstring", testSubstring),
             ("testLength", testLength),
             ("testHas", testHas),
-            ("testSimplified", testSimplified),
+            ("testTrimming", testTrimming),
         ]
     }
 }
