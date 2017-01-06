@@ -22,6 +22,32 @@ public extension String {
             has(prefix: "data:")
   }
 
+  public func addingPath(_ path: String) -> String {
+    if (has(suffix: "/") && !path.has(prefix: "/")) || (!has(suffix: "/") && path.has(prefix: "/")) {
+      return self + path
+    } else if has(suffix: "/") && path.has(prefix: "/") {
+      return String(characters.dropLast(1)) + path
+    } else {
+      return self + "/" + path
+    }
+  }
+
+  public var deletingLastPathComponent: String {
+    var path = self
+    if has(suffix: "/") && length > 1 {
+      path = String(path.characters.dropLast(1))
+    }
+    var count = 0
+    for char in path.characters.reversed() {
+      if char != "/"  {
+        count += 1
+      } else {
+        break
+      }
+    }
+    return String(path.characters.dropLast(count))
+  }
+
   /// Mark: Characters at a random place
 
   public subscript(at: Int) -> Character {

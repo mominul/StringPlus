@@ -41,6 +41,14 @@ class StringPlusTests: XCTestCase {
     func testUrlAndPath() {
       XCTAssertTrue("https://swift.org".isUrl)
       XCTAssertFalse("/home/".isUrl)
+
+      XCTAssertEqual("/home".addingPath("source"), "/home/source")
+      XCTAssertEqual("/usr/".addingPath("/bin"), "/usr/bin")
+      XCTAssertEqual("/bin".addingPath("/curl"), "/bin/curl")
+
+      XCTAssertEqual("/usr/bin/".deletingLastPathComponent, "/usr/")
+      XCTAssertEqual("/usr/bin".deletingLastPathComponent, "/usr/")
+      XCTAssertEqual("/".deletingLastPathComponent, "/")
     }
 
 
