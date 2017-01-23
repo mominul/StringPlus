@@ -92,14 +92,14 @@ public extension String {
 
   public func has(suffix: String) -> Bool {
     if !(suffix.length > self.length) {
-      return right(count: suffix.length) == suffix ? true : false
+      return right(count: suffix.length) == suffix
     }
     return false
   }
 
   public func has(prefix: String) -> Bool {
     if !(prefix.length > self.length) {
-      return left(count: prefix.length) == prefix ? true : false
+      return left(count: prefix.length) == prefix
     }
     return false
   }
